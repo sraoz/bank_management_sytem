@@ -1,0 +1,30 @@
+<%- include("partials/header"); -%>
+
+<div class="Customers-table">
+	<h1 class="customer-heading-headi">Customers Information</h1>
+	<div class="container">
+	<div class="Customers-table-inner">
+	<table class="table">
+		<thead>
+			<tr class="row1">
+				<th>NAME</th>
+				<th>Email ID</th>
+				<th> AMOUNT AVAILABLE</th>
+			</tr>
+		</thead>
+		<tr>
+			<% customersList.forEach(function(customer){%>
+			<tr class="d1">
+              <td><a class="view-link" href="/customers/<%= customer.id %>"><img src="/images/u-2.png" width="20" height="30"><%= customer.name %> </a></td>
+              <td><img src="/images/email-logo.jpg" width="20" height="30"><%= customer.email %> </td>
+              <td><img src="/images/m-2.jpg" width="20" height="30"><%= customer.Amount %> </td>
+            </tr>
+		<%});%>
+		</tr>
+	</table>
+
+</div>
+</div>
+</div>
+
+<%- include("partials/footer"); -%>

@@ -1,0 +1,36 @@
+<%- include("partials/header"); -%>
+
+<div class="form">
+	<div class="container">
+		<div class="form-inner">
+<form action="/transfer" method="POST">
+  <p>TRANSFER MENU</p>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1"><img src="/images/u-2.png" width="20" height="30">Transfer from :-</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="senderId" placeholder="Enter senders name" value="<%= customer.name %>" autocomplete="off" disabled>
+    <input type="text" style="display: none;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="senderId" placeholder="Enter senders name" value="<%= customer.name %>" autocomplete="off">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1"><img src="/images/u-1.png" width="20" height="30">Transfer To :-</label>
+    
+     <select name="receiverId" class="form-control">
+       <% for(var i=0;i<customers.length;i++) { %>
+         <% if(customers[i].name != customer.name) { %>
+         <option value="<%= customers[i].name %>"><%= customers[i].name %></option>
+         <% } %>
+      <% } %>
+     </select>
+   </div>
+   <div class="form-group">
+    <label for="exampleInputAmount"><img src="/images/m-2.jpg" width="20" height="30">Amount</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="amount" placeholder="Enter amount" autocomplete="off">
+    
+   </div>
+ <button type="submit" class="btn-btn-secondary-btn-lg">Transfer</button>
+</form>
+</div>
+</div>
+</div>
+
+<%- include("partials/footer"); -%>
